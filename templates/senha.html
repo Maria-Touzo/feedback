@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login e senha</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+</head>
+
+<body>
+    <form action="/senha" method="post">
+
+        <div class="title">
+            <h1>Login e senha</h1>
+        </div>
+
+        <div class="field">
+            <label class="label">usuario</label>
+            <div class="control has-icons-left has-icons-right">
+                <input class="input is-success" type="text" placeholder="Text input"name="usuario">
+                <span class="icon is-small is-left">
+                    <i class="fas fa-user"></i>
+                </span>
+                <span class="icon is-small is-right">
+                    <i class="fas fa-check"></i>
+                </span>
+            </div>
+        </div>
+
+        </div>
+        <div class="field">
+            <label class="label">senha</label>
+            <div class="control has-icons-left has-icons-right">
+                <input class="input is-danger" type="password" placeholder="password input" name="senha">
+                <span class="icon is-small is-left">
+                    <i class="fas fa-envelope"></i>
+                </span>
+                <span class="icon is-small is-right">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <h1>{{msg_erro}}</h1>
+                </span>
+            </div>
+        </div>
+
+        <div class="field">
+            <p class="control">
+                <button class="button is-success">
+                    Login
+                </button>
+            </p>
+        </div>
+
+    </form>
+</body>
+
+</html>
+
+<style>
+    body {
+
+        display: flex;
+        margin: 0px;
+        border: 0px;
+        box-sizing: border-box;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        flex-direction: column;
+        margin-top: 50px;
+    }
+
+    .field {
+        width: 250px;
+    }
+</style>

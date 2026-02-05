@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comentarios</title>
+    <link rel="stylesheet" href="/static/comentario.css">
+</head>
+<body>
+
+    <section>
+        <form action="/adicionar_comentario" method="post" class="caixa_comen">
+            <input type="text" class="input" name="comentario">
+            <button type="submit" class="button">Envie aqui</button>
+        </form>
+    </section>
+
+    <section class="section">
+        {% for comentario in lista_de_comentario_html %}
+        <div class="box">
+            <span>{{comentario}}</span>
+            
+        </div>
+        {% endfor %}
+    </section>
+</body>
+</html>
+
