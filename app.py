@@ -36,7 +36,7 @@ def comentario():
     if "usuario" in session:
         return render_template("comentario.html", lista_de_comentario_html = lista_de_comentario)
     else:
-        return redirect("/login")
+        return redirect("/senha")
         
 
 @app.route("/adicionar_comentario", methods=["POST"])
