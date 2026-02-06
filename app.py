@@ -1,4 +1,4 @@
-from flask import Flask, redirect, render_template, request
+from flask import Flask, redirect, render_template, request, session
 
 app = Flask(__name__)
 
@@ -19,27 +19,31 @@ def sobre():
 def senha():
     return render_template("senha.html")
 
-@app.route("/senha", methods=["POST"])
+@app.route("/login", methods=["POST"])
 def senha_post():
     usuario = request.form.get("usuario")
     senha = request.form.get("senha")
 
     if usuario == "Luan Santana" and senha == "ilyluan":
-        return redirect("/comentarios")
+        session["usuario"] = "luan santana"
+        return redirect("/comentario")
         
     else:
       return render_template("senha.html", msg_erro = "Senha incorreta")
 
-@app.route("/comentarios")
+@app.route("/comentario")
 def comentario():
-    return render_template("comentarios.html", lista_de_comentario_html = lista_de_comentario)
+    if "usuario" in session:
+        return render_template("comentario.html", lista_de_comentario_html = lista_de_comentario)
+    else:
+        redirect("/login")
 
 @app.route("/adicionar_comentario", methods=["POST"])
 def adicionar_comentario():
     coment = request.form.get("comentario")
     lista_de_comentario.append(coment)
     print(lista_de_comentario)
-    return redirect("/comentarios")
+    return redirect("/comentario")
 
 if __name__  == "__main__":
     app.run(host="0.0.0.0", port=8080, debug= True)
